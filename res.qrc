@@ -16,5 +16,6 @@
         <file>images/自动换行.png</file>
         <file>images/字体.png</file>
         <file>images/显示行号.png</file>
+        <file>images/文本编辑器.png</file>
     </qresource>
 </RCC>
