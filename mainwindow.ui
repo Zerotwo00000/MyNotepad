@@ -337,6 +337,9 @@
    </property>
   </action>
   <action name="action_W">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/images/自动换行.png</normaloff>:/images/自动换行.png</iconset>
@@ -352,6 +355,9 @@
    </property>
   </action>
   <action name="action_T">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/images/工具栏.png</normaloff>:/images/工具栏.png</iconset>
@@ -367,6 +373,9 @@
    </property>
   </action>
   <action name="action_S">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/images/状态栏.png</normaloff>:/images/状态栏.png</iconset>
@@ -425,6 +434,9 @@
    </property>
   </action>
   <action name="actionshownumber">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/images/显示行号.png</normaloff>:/images/显示行号.png</iconset>

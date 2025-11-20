@@ -51,6 +51,16 @@ private slots:
 
     void on_textEdit_undoAvailable(bool b);
 
+    void on_actionFontColor_triggered();
+
+    void on_actionedColor_triggered();
+
+    void on_actionfdColor_triggered();
+
+    void on_action_W_triggered();
+
+    void on_actionFont_triggered();
+
 private:
     Ui::MainWindow *ui;
     QLabel statusCursorLabel;
