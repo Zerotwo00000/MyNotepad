@@ -61,6 +61,14 @@ private slots:
 
     void on_actionFont_triggered();
 
+    void on_action_T_triggered();
+
+    void on_action_S_triggered();
+
+    void on_actionSelectAll_triggered();
+
+    void on_actionExit_triggered();
+
 private:
     Ui::MainWindow *ui;
     QLabel statusCursorLabel;
