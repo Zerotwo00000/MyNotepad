@@ -18,11 +18,11 @@ MainWindow::MainWindow(QWidget *parent)
     textChanged = false;
     on_actionNEW_triggered();
 
-    statusLabel.setMaximumWidth(150);
+    statusLabel.setMaximumWidth(180);
     statusLabel.setText("length:" + QString::number(0) + "   lines: " + QString::number(1));
     ui->statusbar->addPermanentWidget(&statusLabel);
 
-    statusCursorLabel.setMaximumWidth(150);
+    statusCursorLabel.setMaximumWidth(180);
     statusCursorLabel.setText("Ln:" + QString::number(0) + "   Col: " + QString::number(1));
     ui->statusbar->addPermanentWidget(&statusCursorLabel);
 
@@ -48,6 +48,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->action_S->setChecked(true);
     ui->action_T->setChecked(true);
+    ui->actionshownumber->setChecked(true);
+    //on_actionshownumber_triggered(false);
+    connect(ui->actionshownumber,SIGNAL(triggered(bool)),ui->textEdit,SLOT(hideLineNumberArea(bool)));
 }
 
 MainWindow::~MainWindow()
@@ -173,6 +176,8 @@ void MainWindow::on_textEdit_textChanged()
         this->setWindowTitle("*" + this->windowTitle());
         textChanged = true;
     }
+
+    statusLabel.setText("length:" + QString::number(ui->textEdit->toPlainText().length()) + "   lines: " + QString::number(ui->textEdit->document()->lineCount()));
 }
 
 bool MainWindow::userEditConfirmed()
@@ -332,4 +337,29 @@ void MainWindow::on_actionExit_triggered()
     if(userEditConfirmed())
         exit(0);
 }
+
+
+void MainWindow::on_textEdit_cursorPositionChanged()
+{
+    int col=0;
+    int ln=0;
+    int flg=-1;
+    int pos=ui->textEdit->textCursor().position();
+    QString text = ui->textEdit->toPlainText();
+    for(int i=0;i<pos;i++){
+        if(text[i] == '\n'){
+            ln++;
+            flg=i;
+        }
+    }
+    flg++;
+    col=pos-flg;
+    statusCursorLabel.setText("Ln:" + QString::number(ln+1) + "   Col: " + QString::number(col+1));
+}
+
+
+// void MainWindow::on_actionshownumber_triggered(bool checked)
+// {
+//     ui->textEdit->hideLineNumberArea(!checked);
+// }
 
